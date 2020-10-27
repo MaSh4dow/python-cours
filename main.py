@@ -1,42 +1,25 @@
-#def say_hello(name):
-#    print("Hello " + name)
-#    print(f"How are you {name} ?")
+import phonebook as p
+import logger as l
+k = "0145935203"
+c = p.create_contact('Kilian', '0769062552', True)
+p.add_contact(c)
+c = p.create_contact('Max', '0145935203', False)
+p.add_contact(c)
+c = p.create_contact('Lucie', '0967203628', False)
+p.add_contact(c)
+c = p.create_contact('Faycal', '0783429508', True)
+p.add_contact(c)
+print(p.annuaire)
 
-#n = "Kilian"
-#say_hello(n)
-#h = art("Hello")
-# print(h)
-# print(text2art("Hello",))
-# print("Yo")
-def create_contact(name, phone_number, is_favorite):
-    c = {
-        'name': name,
-        'phone_number': phone_number,
-        'is_favorite': is_favorite,
-    }
-    return c
-annuaire = {}
+print(p.get_names())
 
-def add_contact(contact):
-    cle = contact['phone_number']
-    annuaire[cle] = contact
+p.display_all()
 
-c = create_contact('Kilian', '0769062552', True)
-add_contact(c)
-c = create_contact('Max', '0145935203', False)
-add_contact(c)
-c = create_contact('Lucie', '0967203628', False)
-add_contact(c)
-c = create_contact('Faycal', '0783429508', True)
-add_contact(c)
-print(annuaire)
+p.get_contact(k,p.annuaire)
 
-def get_names():
-    names = []
-    for phone_number in annuaire:
-        contact = annuaire[phone_number]
-        names.append(contact['name'])
-    names.sort()
-    return names
+l.dump_log()
 
-print(get_names())
+
+
+
+

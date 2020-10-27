@@ -28,8 +28,8 @@ def display_all():
         print(contact)
         l.save_log(str(contact))
 
-def get_contact(phone_number,contact):
-    for k in annuaire:
-        if phone_number == k:
-            print(contact[k])
-        l.save_log(str(contact[k]))
+def get_contact(phone_number):
+    contact = annuaire[phone_number]
+    l.save_log(f'Getting contact={contact}')
+    return contact
+
